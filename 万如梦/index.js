@@ -88,6 +88,6 @@ class Loading{
     }
 }
 var container = document.querySelector('.process');
-var loading = new Loading(container,{type : 'hourglass-process'});
+var loading = new Loading(container,{type : 'circle-process'});
 loading.init();
 
