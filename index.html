@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>进度条</title>
+    <style>
+        section{
+            margin-bottom: 20px;
+        }
+        .bar{
+            width: 150px;
+            height: 15px;
+            background: #ccc;
+            border-radius: 20px;
+        }
+        .bar .completed{
+            width: 0px;
+            height: 15px;
+            background: #aaa;
+            /*border-bottom-left-radius: 20px;*/
+            /*border-top-left-radius: 20px;*/
+            border-radius: 20px;
+            transition: all 2s;
+        }
+        .process{
+            position: relative;
+            /*overflow: hidden;*/
+        }
+        .hourglass-top{
+            width: 0;
+            height: 0;
+            padding: 0;
+            border-top: 40px solid #ccc;
+            border-bottom: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-left: 40px solid transparent;
+            position: absolute;
+            top: 0;
+        }
+        .hourglass-top-sand{
+            width: 0;
+            height: 0;
+            padding: 0;
+            border-top: 40px solid #aaa;
+            border-bottom: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-left: 40px solid transparent;
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            transition: all 2s;
+        }
+        .hourglass-bottom{
+            padding: 0;
+            width: 0;
+            height: 0;
+            border-top: 40px solid transparent;
+            border-bottom: 40px solid #aaa;
+            border-right: 40px solid transparent;
+            border-left: 40px solid transparent;
+            position: absolute;
+        }
+        .hourglass-bottom-sand{
+            padding: 0;
+            width: 0;
+            height: 0;
+            border-top: 40px solid transparent;
+            border-bottom: 40px solid #ccc;
+            border-right: 40px solid transparent;
+            border-left: 40px solid transparent;
+            position: absolute;
+            top:  -40px;
+            right: -40px;
+            transition: all 2s;
+         }
+
+    </style>
+</head>
+<body>
+    <section class="process"></section>
+    <!--<div class='box'>-->
+        <!--<input class='processSet' type="range" min='0' max='100' value='0'>-->
+    <!--</div>-->
+</body>
+</html>
+<script src="./index.js"></script>
+<script>
+    var container = document.querySelector('.process');
+    var progress = new ProgressFactory(container,{
+        type : 'hourglass-progress'});
+    progress.init();
+    // document.querySelector('.processSet').onchange = function() {
+    //     let value = document.querySelector('.processSet').value;
+    //     progress.setProgress(value);
+    //     console.log(progress.getProgress());
+    // }
+</script>
